@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Lista de Tareas Multilingüe
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta es una aplicación de lista de tareas que permite a los usuarios agregar, editar y eliminar tareas, además de alternar entre dos idiomas (inglés y español) para mostrar las etiquetas de la interfaz. El cambio de idioma se implementa usando la Context API de React.
 
-## Available Scripts
+## Características
 
-In the project directory, you can run:
+- Añadir nuevas tareas a la lista.
+- Editar y eliminar tareas existentes.
+- Alternar entre dos idiomas (inglés y español) usando un botón de cambio de idioma.
+- Almacenamiento de traducciones y tareas utilizando el Context API de React.
 
-### `npm start`
+## Tecnologías Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: Librería principal para crear la interfaz.
+- **Context API**: Manejador de estado global para el cambio de idioma.
+- **CSS**: Para el estilo de la aplicación, incluyendo la alineación del botón de cambio de idioma.
+  
+## Instalación
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Sigue los pasos a continuación para clonar el repositorio y ejecutar el proyecto en tu máquina local.
 
-### `npm test`
+### 1. Clona el repositorio
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/tu-usuario/nombre-del-repositorio.git
+```
 
-### `npm run build`
+### 2. Navega a la carpeta del proyecto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd nombre-del-repositorio
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 3. Instala las dependencias
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Asegúrate de tener Node.js instalado. Luego, ejecuta:
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Esto instalará todas las dependencias necesarias para correr el proyecto.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Inicia el proyecto
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+Esto abrirá la aplicación en tu navegador en http://localhost:3000.
 
-## Learn More
+## Uso
+- **Agregar Tareas**: Escribe una tarea en el campo de entrada y haz clic en "Agregar".
+- **Editar/Eliminar Tareas**: Haz clic en "Editar" para modificar una tarea o "Eliminar" para quitarla de la lista.
+- **Cambiar Idioma**: Haz clic en el botón "Cambiar Idioma" (Toggle Language) para alternar entre inglés y español.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Estructura del Proyecto
+```
+📁 src
+ ┣ 📁 components
+ ┃ ┣ 📄 TodoList.js          # Componente que maneja la lista de tareas
+ ┃ ┣ 📄 LanguageToggle.js    # Componente del botón de cambio de idioma
+ ┃ ┗ 📄 TaskForm.js          # Componente para añadir nuevas tareas
+ ┣ 📄 App.js                 # Componente principal que contiene la lógica
+ ┣ 📄 index.js               # Archivo de entrada de la aplicación
+ ┗ 📄 App.css                # Archivo de estilos para la aplicación
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Explicación de Componentes
+- **App.js**: El componente principal que integra el contexto del idioma y muestra la lista de tareas.
+- **TodoList.js**: Maneja las operaciones CRUD (agregar, editar y eliminar) sobre las tareas.
+- **LanguageToggle.js**: Un botón que cambia el idioma de la interfaz entre inglés y español.
+- **TaskForm.js**: Formulario para agregar nuevas tareas.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
