@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useId } from 'react';
 import './App.css';
 
 // Array de objetos de traducciones
@@ -72,33 +72,35 @@ function ToDoApp() {
   const { translations, toggleLang } = useContext(LangContext); // Usamos el contexto para obtener las traducciones actuales
   const [tasks, setTasks] = useState([]); // Estado de las tareas
   const [newTask, setNewTask] = useState(''); // Estado para la nueva tarea
+  const uniqueId = useId(); // Hook para generar un ID único
 
   // Función para agregar una nueva tarea
   const addTask = () => {
     if (newTask.trim() === '') return; // Evita agregar tareas vacías
-    setTasks([...tasks, { text: newTask, editing: false }]); // Agrega la nueva tarea
+    setTasks([...tasks, { id: `${uniqueId}-${tasks.length}`, text: newTask, editing: false }]); // Agrega la nueva tarea
     setNewTask(''); // Limpia el campo de entrada
   };
 
   // Función para eliminar una tarea
-  const deleteTask = (index) => {
-    const updatedTasks = [...tasks];
-    updatedTasks.splice(index, 1);
+  const deleteTask = (id) => {
+    const updatedTasks = tasks.filter((task) => task.id !== id);
     setTasks(updatedTasks);
   };
 
   // Función para activar el modo de edición
-  const editTask = (index) => {
-    const updatedTasks = [...tasks];
-    updatedTasks[index].editing = true;
+  const editTask = (id) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, editing: true } : task
+    );
     setTasks(updatedTasks);
   };
 
   // Función para guardar los cambios de una tarea
-  const saveTask = (index, newText) => {
+  const saveTask = (id, newText) => {
     if (newText.trim() === '') return;
-    const updatedTasks = [...tasks];
-    updatedTasks[index] = { text: newText, editing: false };
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, text: newText, editing: false } : task
+    );
     setTasks(updatedTasks);
   };
 
@@ -123,8 +125,8 @@ function ToDoApp() {
 
       <ul className="task-list">
         <p className='title-task'> ✎ {translations.titleTasks}: </p>
-        {tasks.map((task, index) => (
-          <li key={index} className="task-item">
+        {tasks.map((task, id) => (
+          <li key={task.id} className="task-item">
             {task.editing ? (
               <>
                 <input
@@ -133,17 +135,17 @@ function ToDoApp() {
                   onChange={(e) => (task.text = e.target.value)}
                   className="task-text"
                 />
-                <button className="save-button" onClick={() => saveTask(index, task.text)}>
+                <button className="save-button" onClick={() => saveTask(task.id, task.text)}>
                   {translations.save}
                 </button>
               </>
             ) : (
               <>
                 <span className="task-text">• {task.text}</span>
-                <button className="edit-button" onClick={() => editTask(index)}>
+                <button className="edit-button" onClick={() => editTask(task.id)}>
                   {translations.edit}
                 </button>
-                <button className="delete-button" onClick={() => deleteTask(index)}>
+                <button className="delete-button" onClick={() => deleteTask(task.id)}>
                   {translations.delete}
                 </button>
               </>
