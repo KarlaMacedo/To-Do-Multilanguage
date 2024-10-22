@@ -54,22 +54,23 @@ Esto abrirá la aplicación en tu navegador en http://localhost:3000.
 - **Editar/Eliminar Tareas**: Haz clic en "Editar" para modificar una tarea o "Eliminar" para quitarla de la lista.
 - **Cambiar Idioma**: Haz clic en el botón "Cambiar Idioma" (Toggle Language) para alternar entre inglés y español.
 
-## Estructura del Proyecto
-```
-📁 src
- ┣ 📁 components
- ┃ ┣ 📄 TodoList.js          # Componente que maneja la lista de tareas
- ┃ ┣ 📄 LanguageToggle.js    # Componente del botón de cambio de idioma
- ┃ ┗ 📄 TaskForm.js          # Componente para añadir nuevas tareas
- ┣ 📄 App.js                 # Componente principal que contiene la lógica
- ┣ 📄 index.js               # Archivo de entrada de la aplicación
- ┗ 📄 App.css                # Archivo de estilos para la aplicación
-```
 
-## Explicación de Componentes
-- **App.js**: El componente principal que integra el contexto del idioma y muestra la lista de tareas.
-- **TodoList.js**: Maneja las operaciones CRUD (agregar, editar y eliminar) sobre las tareas.
-- **LanguageToggle.js**: Un botón que cambia el idioma de la interfaz entre inglés y español.
-- **TaskForm.js**: Formulario para agregar nuevas tareas.
+[comment]: <> (## Estructura del Proyecto)
+[comment]: <> (```)
+[comment]: <> (📁 src)
+[comment]: <> ( ┣ 📁 components)
+[comment]: <> ( ┃ ┣ 📄 TodoList.js          # Componente que maneja la lista de tareas)
+[comment]: <> ( ┃ ┣ 📄 LanguageToggle.js    # Componente del botón de cambio de idioma)
+[comment]: <> ( ┃ ┗ 📄 TaskForm.js          # Componente para añadir nuevas tareas)
+[comment]: <> ( ┣ 📄 App.js                 # Componente principal que contiene la lógica)
+[comment]: <> ( ┣ 📄 index.js               # Archivo de entrada de la aplicación)
+[comment]: <> ( ┗ 📄 App.css                # Archivo de estilos para la aplicación)
+[comment]: <> (```)
+
+[comment]: <> (## Explicación de Componentes)
+[comment]: <> (- **App.js**: El componente principal que integra el contexto del idioma y muestra la lista de tareas.)
+[comment]: <> (- **TodoList.js**: Maneja las operaciones CRUD (agregar, editar y eliminar) sobre las tareas.)
+[comment]: <> (- **LanguageToggle.js**: Un botón que cambia el idioma de la interfaz entre inglés y español.)
+[comment]: <> (- **TaskForm.js**: Formulario para agregar nuevas tareas.)
 
 
